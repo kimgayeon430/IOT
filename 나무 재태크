@@ -1,4 +1,4 @@
-// 문제 링크 : https://www.acmicpc.net/problem/16235
+- 문제 링크 : https://www.acmicpc.net/problem/16235
 1. 이 문제를 한 문장으로 요약하면
 각 칸마다 여러 나무를 관리하면서, K년 동안 봄-여름-가을-겨울을 그대로 시뮬레이션하는 문제야.
 
@@ -24,3 +24,25 @@ Winter()
 → 마지막에 살아있는 나무 수 세기
 
 즉, 문제에 나온 계절 순서를 그대로 함수로 나눠서 구현한 거야.
+
+< sort 정렬 >
+#include <algorithm>
+sort(시작 주소, 끝주소);
+
+예시
+int arr[] = {5, 2, 4, 1, 3};
+sort(arr, arr + 5); -> arr[0] ~ arr[4] 까지 정렬
+결과 : 1 2 3 4 5
+
+- vector, deque 에서도 사용 가능
+sort(MAP[i][j].begin(), MAP[i][j].end()); -> 이 칸에 있는 나무들을 나이순으로 정렬 (봄에 어린 나무부터 양분을 먹기 위힘)
+
+- 오름차순 vs 내림차순
+오름차순 : sort(arr, arr + n)
+내림차순 : sort(arr, arr + n, greater<int>());
+
+- 사용자 정의 정렬
+bool cmp(int a, int b) {  // cmp : 비교함수(compare) 두 값을 비교해서 어떤게 앞에 올지 정하는 함수
+  return a > b;  // a가 b보다 앞에 와야 하면 true
+}
+sort(arr, arr + n, cmp);
